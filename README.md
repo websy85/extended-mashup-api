@@ -37,37 +37,38 @@ The extended version of the API is implemented in the same way as the standard M
 5. You can now use the returned object in the same way as the standard Mashup API but with additional functionality.
 
 Example Usage -
-var config = {
-	host: window.location.hostname,
-	prefix: "/",
-	port: window.location.port,
-	isSecure: window.location.protocol === "https:"
-};
-require.config( {
-	baseUrl: ( config.isSecure ? "https://" : "http://" ) + config.host + (config.port ? ":" + config.port: "") + config.prefix + "resources"
-} );
 
-require( ["./extended-mashup-api.js"], function ( qlik ) {
-	qlik.setOnError( function ( error ) {
-		alert( error.message );
-	} );
+  var config = {
+  	host: window.location.hostname,
+  	prefix: "/",
+  	port: window.location.port,
+  	isSecure: window.location.protocol === "https:"
+  };
+  require.config( {
+  	baseUrl: ( config.isSecure ? "https://" : "http://" ) + config.host + (config.port ? ":" + config.port: "") + config.prefix + "resources"
+  } );
 
-	var app = qlik.openApp('Helpdesk Management', config);
+  require( ["./extended-mashup-api.js"], function ( qlik ) {
+  	qlik.setOnError( function ( error ) {
+  		alert( error.message );
+  	} );
 
-	app.model.waitForOpen.promise.then(function(){
-		app.storytelling.getStoryList(function(stories){
-			app.storytelling.getSlideList(stories[0].qInfo.qId, function(slides){
-				var storyElement = document.getElementById('story');
-				for (var i=0;i<slides.length;i++){
-					var e = document.createElement('div');
-					e.classList.add('slide');
-					e.style.width = "100%";
-					e.style.height = ((storyElement.clientWidth)/(16/9)) + "px";
-					storyElement.appendChild(e);
-					app.getSlide(e, slides[i].qInfo.qId);
-				}
+  	var app = qlik.openApp('Helpdesk Management', config);
 
-			})
-		})
-	});
-});
+  	app.model.waitForOpen.promise.then(function(){
+  		app.storytelling.getStoryList(function(stories){
+  			app.storytelling.getSlideList(stories[0].qInfo.qId, function(slides){
+  				var storyElement = document.getElementById('story');
+  				for (var i=0;i<slides.length;i++){
+  					var e = document.createElement('div');
+  					e.classList.add('slide');
+  					e.style.width = "100%";
+  					e.style.height = ((storyElement.clientWidth)/(16/9)) + "px";
+  					storyElement.appendChild(e);
+  					app.getSlide(e, slides[i].qInfo.qId);
+  				}
+
+  			})
+  		})
+  	});
+  });
