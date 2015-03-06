@@ -26,7 +26,7 @@ NOTE: At present the getSlide function does NOT support snapshot objects with hi
 
 ### getSnapshotList(callbackFn)
 A new function has been added to the 'app' object return by qlik.openApp().
-This returns a JSON array of Sanpshot objects to the given callback function.
+This returns a JSON array of Snapshot objects to the given callback function.
 
 ##Implementation:
 The extended version of the API is implemented in the same way as the standard Mashup API.
