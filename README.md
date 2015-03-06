@@ -28,13 +28,20 @@ NOTE: At present the getSlide function does NOT support snapshot objects with hi
 A new function has been added to the 'app' object return by qlik.openApp().
 This returns a JSON array of Sanpshot objects to the given callback function.
 
-Implementation:
+##Implementation:
 The extended version of the API is implemented in the same way as the standard Mashup API.
 1. Copy the extended-mashup-api.js file from the build directory into your project.
 2. Ensure you have loaded the requireJS file into your page.
 3. Configure the Require object as normal.
 4. Instead of loading the 'js/qlik' file, load the 'extended-mashup-api.js' file from your project.
 5. You can now use the returned object in the same way as the standard Mashup API but with additional functionality.
+
+##Modification:
+If modifying the solution, to create the 'build' version of the 'extended-mashup-api.js' you will need run the "grunt include" command. To do this - 
+1. Open a command window and browse to the project directory. 
+2. Ensure the correct node packages are installed by running npm install. 
+3. Now run "grunt includes"
+4. The 'build' directory will now contain the latest built version of the file.
 
 Example Usage -
 HTML
