@@ -37,7 +37,7 @@ The extended version of the API is implemented in the same way as the standard M
 5. You can now use the returned object in the same way as the standard Mashup API but with additional functionality.
 
 Example Usage -
-
+```javascript
   var config = {
   	host: window.location.hostname,
   	prefix: "/",
@@ -72,3 +72,4 @@ Example Usage -
   		})
   	});
   });
+  ```
