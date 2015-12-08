@@ -23,7 +23,7 @@ getStoryList: function(callbackFn){
   };
   app.model.session.rpc(msg).then(function(response){
     getLayout.call(app, response.result.qReturn.qHandle, function(response){
-      callbackFn.call(null, response.result.qLayout[0].value.qAppObjectList.qItems)
+      callbackFn.call(null, response.result.qLayout.qAppObjectList.qItems)
     });
   });
 }

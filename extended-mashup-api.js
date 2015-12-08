@@ -23,7 +23,7 @@ define(["js/qlik"], function(qlik){
       method: "GetLayout",
       handle: handle,
       params: [],
-      delta: true,
+      delta: false,
       jsonrpc: "2.0"
     };
     //get the "Layout"

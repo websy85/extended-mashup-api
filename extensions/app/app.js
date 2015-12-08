@@ -6,6 +6,8 @@ extended.openApp = function (appId, config){
     ,
     include "getSlide.js"
     ,
+		include "getSlideManually.js"
+    ,
     include "getSnapshotList.js"
   });
   return app;
